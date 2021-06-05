@@ -10,15 +10,13 @@
   ["flower","flow","flight"] => "fl"
   [""] => ""
   ["",""] => ""
-  */
 
-  /*
   Constraints:
 
   1 <= strs.length <= 200
   0 <= strs[i].length <= 200
   strs[i] consists of only lower-case English letters.
-   */
+ */
 
   //  Runtime: 84 ms, faster than 71.45% of JavaScript online submissions for Longest Common Prefix.
   //  Memory Usage: 38.7 MB, less than 91.00% of JavaScript online submissions for Longest Common Prefix.
