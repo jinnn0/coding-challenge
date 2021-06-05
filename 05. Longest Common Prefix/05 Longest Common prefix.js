@@ -4,7 +4,7 @@
  */
 
  /*
-  Find the longest common charaters that the strings in the array starts with
+  Find the longest common charaters that the strings in the array start with
 
   ["dog","racecar","car"] => ""
   ["flower","flow","flight"] => "fl"
