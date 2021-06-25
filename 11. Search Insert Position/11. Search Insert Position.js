@@ -18,33 +18,12 @@
  nums = [0], target = 0         => output 0
  */
 
-// Runtime: 68 ms, faster than 96.54% of JavaScript online submissions for Search Insert Position.
-// Memory Usage: 40 MB, less than 7.49% of JavaScript online submissions for Search Insert Position.
-const searchInsert = (nums, target) => {
-  const targetIndex = nums.indexOf(target);
-
-  if (0 < targetIndex) return targetIndex;
-  else {
-    let i = 0;
-    let index = 0;
-
-    while (i < nums.length) {
-      if (target > nums[i]) {
-        index++;
-      }
-      i++;
-    }
-
-    return index;
-  }
-};
-
 // Runtime: 76 ms, faster than 76.91% of JavaScript online submissions for Search Insert Position.
 // Memory Usage: 39.7 MB, less than 16.00% of JavaScript online submissions for Search Insert Position.
 const searchInsert = (nums, target) => {
   const index = nums.indexOf(target);
 
-  if (0 < index) return index;
+  if (index > -1) return index;
   else {
     let i = 0;
 
@@ -67,4 +46,33 @@ const searchInsert = (nums, target) => {
 const searchInsert = (nums, target) => {
   const index = nums.findIndex((num) => num >= target);
   return index === -1 ? nums.length : index;
+};
+
+// Bimary search
+// Runtime: 64 ms, faster than 99.12% of JavaScript online submissions for Search Insert Position.
+// Memory Usage: 40 MB, less than 10.03% of JavaScript online submissions for Search Insert Position.
+const searchInsert = (nums, target) => {
+  const index = nums.indexOf(target);
+  if (index > -1) return index;
+
+  if (nums[0] > target) {
+    return 0;
+  } else if (nums[nums.length - 1] < target) {
+    return nums.length;
+  } else {
+    let left = 0;
+    let right = nums.length - 1;
+
+    while (left <= right) {
+      const middle = left + Math.floor((right - left) / 2);
+
+      if (target < nums[middle] && target > nums[middle - 1]) {
+        return middle;
+      } else if (nums[middle] < target) {
+        left = middle + 1;
+      } else {
+        right = middle - 1;
+      }
+    }
+  }
 };
